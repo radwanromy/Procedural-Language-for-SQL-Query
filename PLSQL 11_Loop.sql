@@ -1,0 +1,26 @@
+/* Formatted on 21-Oct-21 4:19:51 AM (QP5 v5.287) */
+SET SERVEROUTPUT ON;
+DECLARE
+   i   NUMBER := 1;
+BEGIN
+   LOOP
+      EXIT WHEN i > 100;
+      DBMS_OUTPUT.PUT_LINE (i);
+      i := i + 1;
+   END LOOP;
+   DECLARE   
+VAR1 NUMBER;  
+VAR2 NUMBER;  
+BEGIN   
+VAR1:=100;  
+VAR2:=1;  
+LOOP  
+DBMS_OUTPUT.PUT_LINE (VAR1*VAR2);  
+IF (VAR2=10) THEN  
+EXIT;  
+END IF;  
+VAR2:=VAR2+1;  
+END LOOP;  
+END;  
+END;
+/
