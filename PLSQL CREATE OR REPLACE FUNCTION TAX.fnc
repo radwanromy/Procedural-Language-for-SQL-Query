@@ -6,7 +6,6 @@ BEGIN
    RETURN (p_value * 0.08);
 END tax;
 /
-
 SELECT employee_id,
        last_name,
        salary,
