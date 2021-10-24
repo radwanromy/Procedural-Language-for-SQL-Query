@@ -6,5 +6,9 @@ BEGIN
    	VALUES(1, 'employee 1', 'emp1@company.com',
 		 	SYSDATE, 'SA_MAN', 1000);
    RETURN (p_sal + 100);
+   
+UPDATE employees SET salary = dml_call_sql(2000)
+ WHERE employee_id = 170;
 END;
 /
+
