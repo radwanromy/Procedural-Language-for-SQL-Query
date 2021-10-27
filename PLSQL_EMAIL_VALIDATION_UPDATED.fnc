@@ -12,17 +12,19 @@ BEGIN
    at_the_rate := INSTR (email_address, '@');
    dot_symbol := INSTR (email_address, '.');
    string_length := LENGTH (email_address);
-   c_at_the_rate := Count(email_address, '@');
-   c_dot_symbol := Count(email_address, '@');
+   c_at_the_rate := ROUND(LENGTH(email_address)-LENGTH(REplace(email_address, '@')));
+   c_dot_symbol := ROUND(LENGTH(email_address)-LENGTH(REplace(email_address, '.')));
+  -- after_at_the_rate := c_at_the_rate+1;
 
 
    IF ( (   (dot_symbol = 0)
          OR (at_the_rate = 0)
          OR (dot_symbol = at_the_rate + 1)
          OR (at_the_rate = 1)
+         OR (c_at_the_rate> 1)
+         OR (c_dot_symbol=c_at_the_rate+1)
          OR (at_the_rate = string_length)
-         OR (dot_symbol = string_length)
-         OR (COUNT(INSTR (email_address, '@')) > 1)))
+         OR (dot_symbol = string_length)))
    THEN
       RETURN 'Invalid email addresses';
    END IF;
