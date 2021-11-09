@@ -24,18 +24,18 @@ AS
             WHERE employee_id = c_id;
    END delEmployee;
 
-   PROCEDURE listCustomer
+   PROCEDURE listEmployee
    IS
-      CURSOR c_customers
+      CURSOR e_employees
       IS
-         SELECT name FROM customers;
+         SELECT name FROM employee;
 
-      TYPE c_list IS TABLE OF customers.Name%TYPE;
+      TYPE e_list IS TABLE OF employee.last_name%TYPE;
 
       name_list   c_list := c_list ();
       counter     INTEGER := 0;
    BEGIN
-      FOR n IN c_customers
+      FOR n IN e_employees
       LOOP
          counter := counter + 1;
          name_list.EXTEND;
