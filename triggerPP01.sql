@@ -2,7 +2,7 @@
 CREATE OR REPLACE PACKAGE BODY e_tpp
 
 AS
-   idn             NUMBER (6, 0);
+  /* idn             NUMBER (6, 0);
    user_name       VARCHAR2 (25);
    timestampn      VARCHAR2 (25);
    old_last_name   VARCHAR2 (25);
@@ -11,7 +11,7 @@ AS
    new_title       VARCHAR2 (10);
    old_salary      VARCHAR2 (10);
    new_salary      VARCHAR2 (10);
-
+*/
    PROCEDURE addEmployee (e_id      employee.employee_id%TYPE,
                           e_name    employee.last_name%TYPE,
                           e_job     employee.job_id%TYPE,
@@ -36,7 +36,7 @@ AS
    END delEmployee;
 
 
-
+ /*
    PROCEDURE insertEmployee
    IS
    BEGIN
@@ -56,7 +56,7 @@ AS
                                operation)
            VALUES (USER,
                    SYSDATE,
-                   :NEW.HR.employee_id,
+                   :NEW.employee_id,
                    :NEW.last_name,
                    :NEW.last_name,
                    :NEW.job_id,
@@ -121,6 +121,6 @@ IS
                    :NEW.salary,
                    'Insert');
    END UPDATEEMPLOYEE;
-
+*/
 END e_tpp;
 /

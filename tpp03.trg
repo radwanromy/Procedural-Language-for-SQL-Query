@@ -6,19 +6,18 @@ CREATE OR REPLACE TRIGGER dml_emp_values
    ENABLE
 
 BEGIN
-   SELECT USER, TO_CHAR (SYSDATE, 'DD/MON/YYYY HH24:MI:SS')
-     INTO user_name, timestampn
-     FROM DUAL;
 
    IF INSERTING
    THEN 
-  Execute PAckage E_tpp PROCEDURE delEmployee ();
+   e_tpp.insertEmployee ();
    
    ELSIF DELETING
+   
    THEN
+   e_tpp.deleteEmployee ();
    ELSIF UPDATING
    THEN
-      
+      e_tpp.updateEmployee ();
    END IF;
 END;
 /
