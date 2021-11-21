@@ -1,1 +1,1 @@
-drop package e_tpp;
+SELECT * FROM EMPLOYEE;

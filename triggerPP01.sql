@@ -1,17 +1,16 @@
-/* Formatted on 09/Nov/21 5:51:53 PM (QP5 v5.287) */
+/* Formatted on 10/Nov/21 11:46:05 AM (QP5 v5.287) */
 CREATE OR REPLACE PACKAGE BODY e_tpp
-
 AS
-  /* idn             NUMBER (6, 0);
-   user_name       VARCHAR2 (25);
-   timestampn      VARCHAR2 (25);
-   old_last_name   VARCHAR2 (25);
-   new_last_name   VARCHAR2 (25);
-   old_title       VARCHAR2 (10);
-   new_title       VARCHAR2 (10);
-   old_salary      VARCHAR2 (10);
-   new_salary      VARCHAR2 (10);
-*/
+   /* idn             NUMBER (6, 0);
+    user_name       VARCHAR2 (25);
+    timestampn      VARCHAR2 (25);
+    old_last_name   VARCHAR2 (25);
+    new_last_name   VARCHAR2 (25);
+    old_title       VARCHAR2 (10);
+    new_title       VARCHAR2 (10);
+    old_salary      VARCHAR2 (10);
+    new_salary      VARCHAR2 (10);
+ */
    PROCEDURE addEmployee (e_id      employee.employee_id%TYPE,
                           e_name    employee.last_name%TYPE,
                           e_job     employee.job_id%TYPE,
@@ -32,10 +31,19 @@ AS
    IS
    BEGIN
       DELETE FROM employee
-            WHERE employee_id = c_id;
+            WHERE employee_id = e_id;
    END delEmployee;
 
-
+   PROCEDURE upEmployee (e_id      employee.employee_id%TYPE,
+                         e_name    employee.last_name%TYPE,
+                         e_job     employee.job_id%TYPE,
+                         e_sal     employee.salary%TYPE)
+   IS
+   BEGIN
+      UPDATE employee
+         SET last_name = e_name, job_id = e_job, salary = e_sal
+       WHERE employee_id = e_id;
+   END upEmployee;
  /*
    PROCEDURE insertEmployee
    IS
@@ -122,5 +130,8 @@ IS
                    'Insert');
    END UPDATEEMPLOYEE;
 */
+
+
+
 END e_tpp;
 /
