@@ -1,0 +1,1 @@
+select log_in('David', 'Austin') from employees;
