@@ -1,0 +1,1 @@
+SELECT SYS_CONTEXT('USERENV','Host') FROM dual;

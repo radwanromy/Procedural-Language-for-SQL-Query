@@ -1,0 +1,1 @@
+Select email_validation('ra.dwan_romy@gmail.bd.in') from dual;

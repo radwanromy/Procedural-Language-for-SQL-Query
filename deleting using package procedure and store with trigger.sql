@@ -1,0 +1,1 @@
+EXECUTE e_tpp.delEmployee(44);
